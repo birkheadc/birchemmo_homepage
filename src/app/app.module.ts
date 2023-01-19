@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DownloadModule } from './download/download.module';
+import { NavModule } from './nav/nav.module';
+import { RegisterModule } from './register/register.module';
+import { SessionModule } from './session/session.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NavModule,
+    SessionModule,
+    RegisterModule,
+    DownloadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

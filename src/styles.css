@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import './reset.css';
+@import './vars.css';
+
+html {
+  color: var(--clr-text-a);
+  background-color: var(--clr-bg-b);
+}
+
+body {
+  background-color: red;
+  width: 100vw;
+  height: 100vh;
+}
+
+#body-wrapper {
+  background-color: var(--clr-bg-a);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+p {
+  font-family: var(--font-p);
+}
+
+a {
+  font-family: var(--font-h);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-h);
+}

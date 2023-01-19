@@ -1,0 +1,18 @@
+nav {
+  background-color: var(--clr-text-a);
+  color: var(--clr-bg-a);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 1em 2em;
+
+  font-size: 1.2em;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  list-style: none;
+}
