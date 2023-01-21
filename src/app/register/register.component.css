@@ -1,0 +1,16 @@
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--clr-accent-b);
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: var(--clr-accent-b);
+}
+a:hover {
+  color: var(--clr-accent-c);
+}

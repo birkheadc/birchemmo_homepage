@@ -1,14 +1,14 @@
 li {
-  color: var(--clr-text-b);
+  color: var(--clr-accent-a);
   padding: 0.5em 0.5em 0.3em 0.5em;
   border-radius: 5px 5px 0 0;
 }
 
 li:hover {
-  color: var(--clr-bg-a);
+  color: var(--clr-white);
 }
 
 li.active-link {
-  background-color: var(--clr-bg-b);
-  color: var(--clr-bg-a);
+  background-color: var(--clr-accent-a);
+  color: var(--clr-black);
 }

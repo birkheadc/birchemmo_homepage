@@ -1,0 +1,15 @@
+h1 {
+  font-size: 3em;
+  color: var(--clr-accent-b);
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+p {
+  max-width: 600px;
+  margin: 0 auto;
+}

@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: var(--clr-accent-b);
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+p {
+  text-align: center;
+  margin: 1em auto;
+  width: fit-content;
+}
+
+div.links {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+div.links>div {
+  padding: 1em;
+  flex-grow: 1;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--clr-border-a);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+div.links>div>ul {
+  margin: 0 auto;
+  padding: 1em;
+  list-style: circle;
+}
+
+div.links>div>ol {
+  margin: 0 auto;
+  padding: 1em;
+  list-style: circle;
+}
+
+div.links>div>ul>li::marker {
+  content: initial;
+}

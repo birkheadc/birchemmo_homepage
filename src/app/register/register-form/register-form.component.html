@@ -1,0 +1,33 @@
+<form onsubmit="userService.createUser">
+  <div class="label-input-row">
+    <label for="username">Username</label>
+    <input id="username" name="username">
+  </div>
+  <div class="label-input-row">
+    <label for="email">Email Address</label>
+    <input id="email" name="email" type="email">
+  </div>
+  <div class="label-input-row">
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password">
+  </div>
+  <div class="label-input-row">
+    <label for="confirm">Repeat Password</label>
+    <input id="confirm" name="confirm" type="password">
+  </div>
+  <div class="checkbox-label-row">
+    <input id="sendmemail" name="sendmemail" type="checkbox">
+    <label for="sendmemail">Send me updates and announcements about the game</label>
+  </div>
+  <div class="checkbox-label-row">
+    <input id="agree" name="agree" type="checkbox">
+    <span><label for="agree">I have read and agree to the</label><a routerLink="/tos"> Terms of Service</a></span>
+  </div>
+  <div class="tooltip-row">
+    <span>We will only use your email to verify your account, or if you opt in to receive updates.</span>
+    <span>We will <strong>never</strong> share your information with a third party.</span>
+  </div>
+  <div class="button-row-single-center">
+    <button type="submit">Sign Up</button>
+  </div>
+</form>

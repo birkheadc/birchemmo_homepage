@@ -1,5 +1,5 @@
 nav {
-  background-color: var(--clr-text-a);
+  background-color: var(--clr-black);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,7 +10,7 @@ nav {
 }
 
 nav ul {
-  color: var(--clr-text-b);
+  color: var(--clr-accent-a);
   display: flex;
   flex-direction: row;
   gap: 1em;

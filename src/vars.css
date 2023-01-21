@@ -1,9 +1,10 @@
 :root {
-  --clr-text-a: #32292F;
-  --clr-text-b: #77966D;
-  --clr-bg-a: #F3EFF5;
-  --clr-bg-b: #77966D;
-  --clr-border-a: #6200B3;
+  --clr-black: #29262B;
+  --clr-white: #F7F7F2;
+
+  --clr-accent-a: #E4E6C3;
+  --clr-accent-b: #A72608;
+  --clr-accent-c: #FE7F2D;
 
   --font-p: 'Archivo Narrow', sans-serif;
   --font-h: 'Acme', sans-serif;

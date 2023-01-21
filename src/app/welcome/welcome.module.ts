@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from './welcome.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,10 +10,8 @@ import { WelcomeComponent } from './welcome.component';
     WelcomeComponent
   ],
   imports: [
-    CommonModule
-  ],
-  exports: [
-    WelcomeComponent
+    CommonModule,
+    RouterModule
   ]
 })
 export class WelcomeModule { }

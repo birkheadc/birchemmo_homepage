@@ -1,0 +1,108 @@
+strong {
+  font-weight: bold;
+}
+
+label {
+  cursor: default;
+}
+
+a {
+  color: var(--clr-accent-b);
+}
+
+a:hover {
+  color: var(--clr-accent-c);
+  text-decoration: underline;
+}
+
+form {
+  font-family: var(--font-p);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  width: fit-content;
+  margin: 2em auto;
+
+  max-width: 400px;
+}
+
+form>div {
+  position: relative;
+}
+
+div.checkbox-label-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+}
+
+div.checkbox-label-row>input {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+}
+
+div.checkbox-label-row>input:hover {
+  background-color: var(--clr-accent-a);
+}
+
+div.checkbox-label-row>input:checked {
+  background-color: var(--clr-accent-b);
+}
+
+div.checkbox-label-row>input:checked::before {
+  content: '✓';
+  font-size: 0.9em;
+  color: var(--clr-white);
+  position: absolute;
+  left: 0.2em;
+  bottom: 0.1em;
+}
+
+div.tooltip-row {
+  display: flex;
+  flex-direction: column;
+}
+
+div.label-input-row>label {
+  position: absolute;
+  top: -1.5ex;
+  left: 0.5ex;
+  background-color: var(--clr-white);
+  padding: 0 0.2em;
+  pointer-events: none;
+}
+
+div.label-input-row>input {
+  width: 100%;
+  padding: 0.5em;
+}
+
+div.button-row-single-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button {
+  border-style: outset;
+  border-width: 5px;
+  border-color: var(--clr-accent-b);
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  background-color: var(--clr-accent-a);
+  cursor: pointer;
+}
+
+button:hover {
+  text-decoration: underline;
+  border-style: inset;
+}
+
+input {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--clr-black);
+}

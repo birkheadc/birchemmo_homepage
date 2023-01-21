@@ -2,8 +2,8 @@
 @import './vars.css';
 
 html {
-  color: var(--clr-text-a);
-  background-color: var(--clr-bg-b);
+  color: var(--clr-black);
+  background-color: var(--clr-accent-a);
 }
 
 body {
