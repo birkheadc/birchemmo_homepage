@@ -11,7 +11,7 @@ export class RegisterFormInputComponent {
   @Input()
   control!: FormControl
   @Input()
-  id: string = "";
+  _id: string = "";
   @Input()
   type: string = "";
 }

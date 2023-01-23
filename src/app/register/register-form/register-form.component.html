@@ -1,16 +1,17 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <app-register-form-input [control]="getFormControl('username')" id="Username" type="text"></app-register-form-input>
-  <app-register-form-input [control]="getFormControl('emailAddress')" id="Email Address" type="email"></app-register-form-input>
-  <app-register-form-input [control]="getFormControl('password')" id="Password" type="password"></app-register-form-input>
-  <app-register-form-input [control]="getFormControl('confirmPassword')" id="Confirm Password" type="password"></app-register-form-input>
-  <div class="checkbox-label-row">
-    <input id="sendmemail" formControlName="sendMeMail" type="checkbox" >
+  <app-register-form-input [control]="getFormControl('username')" _id="Username" type="text"></app-register-form-input>
+  <app-register-form-input [control]="getFormControl('emailAddress')" _id="Email Address" type="email"></app-register-form-input>
+  <app-register-form-input [control]="getFormControl('password')" _id="Password" type="password"></app-register-form-input>
+  <app-register-form-input [control]="getFormControl('confirmPassword')" _id="Confirm Password" type="password"></app-register-form-input>
+
+  <app-register-form-checkbox _id="sendmemail" [control]="getFormControl('sendMeMail')">
     <label for="sendmemail">Send me updates and announcements about the game</label>
-  </div>
-  <div class="checkbox-label-row">
-    <input [ngClass]="{ 'check-required' : userForm.controls['agreeToTos'].errors }" id="agree" formControlName="agreeToTos" type="checkbox">
+  </app-register-form-checkbox>
+
+  <app-register-form-checkbox _id="agree" [control]="getFormControl('agreeToTos')">
     <span><label for="agree">I have read and agree to the</label><a routerLink="/tos"> Terms of Service</a></span>
-  </div>
+  </app-register-form-checkbox>
+  
   <div class="message-row">
     <span>We will only use your email to verify your account, or if you opt in to receive updates.</span>
     <span>We will <strong>never</strong> share your information with a third party.</span>
@@ -18,4 +19,5 @@
   <div class="button-row-single-center">
     <button class="standard-button" [disabled]="!userForm.valid" type="submit">Sign Up</button>
   </div>
+  <ng-content></ng-content>
 </form>

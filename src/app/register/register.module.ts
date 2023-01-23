@@ -6,6 +6,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserService } from '../user/user.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormInputComponent } from './register-form/register-form-input/register-form-input.component';
+import { RegisterFormCheckboxComponent } from './register-form/register-form-checkbox/register-form-checkbox.component';
 
 
 
@@ -13,7 +14,8 @@ import { RegisterFormInputComponent } from './register-form/register-form-input/
   declarations: [
     RegisterComponent,
     RegisterFormComponent,
-    RegisterFormInputComponent
+    RegisterFormInputComponent,
+    RegisterFormCheckboxComponent
   ],
   imports: [
     CommonModule,
