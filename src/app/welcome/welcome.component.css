@@ -20,22 +20,3 @@ div.call-to-action {
   margin: 3em auto;
   justify-content: space-around;
 }
-
-div.call-to-action>a {
-  border-style: outset;
-  border-width: 5px;
-  border-color: var(--clr-accent-b);
-  padding: 0.5em;
-
-  width: 10em;
-  text-align: center;
-  font-size: 1.2em;
-
-  background-color: var(--clr-accent-a);
-}
-
-div.call-to-action>a:hover {
-  text-decoration: underline;
-  border-style: inset;
-}
-

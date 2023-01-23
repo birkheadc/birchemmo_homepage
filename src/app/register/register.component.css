@@ -11,6 +11,7 @@ p {
 a {
   color: var(--clr-accent-b);
 }
-a:hover {
+a:hover, a:focus {
   color: var(--clr-accent-c);
+  text-decoration: underline;
 }

@@ -9,6 +9,7 @@ html {
 body {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 p {
@@ -21,4 +22,39 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-h);
+}
+
+input {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--clr-black);
+}
+
+label.field-error {
+  color: red;
+}
+
+input.check-required {
+  border-color: red;
+}
+
+.standard-button {
+  border-style: outset;
+  border-width: 5px;
+  border-color: var(--clr-accent-b);
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  background-color: var(--clr-accent-a);
+}
+
+a.standard-button:hover, a.standard-button:focus, button.standard-button:hover:enabled, button.standard-button:focus:enabled {
+  cursor: pointer;
+  text-decoration: underline;
+  border-style: inset;
+  border-color: var(--clr-accent-c);
+}
+
+.standard-button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }

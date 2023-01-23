@@ -1,0 +1,21 @@
+div {
+  position: relative;
+}
+
+div.label-input-row>label {
+  position: absolute;
+  top: -1.5ex;
+  left: 0.5ex;
+  background-color: var(--clr-white);
+  padding: 0 0.2em;
+  pointer-events: none;
+}
+
+div.label-input-row>input {
+  width: 100%;
+  padding: 0.5em;
+}
+
+div.label-input-row>input:focus, div.label-input-row>input:hover {
+  box-shadow: 5px 2px 5px var(--clr-black);
+}

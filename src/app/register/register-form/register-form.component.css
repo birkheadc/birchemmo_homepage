@@ -10,7 +10,7 @@ a {
   color: var(--clr-accent-b);
 }
 
-a:hover {
+a:hover, a:focus {
   color: var(--clr-accent-c);
   text-decoration: underline;
 }
@@ -44,8 +44,8 @@ div.checkbox-label-row>input {
   height: 1em;
 }
 
-div.checkbox-label-row>input:hover {
-  background-color: var(--clr-accent-a);
+div.checkbox-label-row>input:hover, div.checkbox-label-row>input:focus {
+  box-shadow: 2px 1px 2px var(--clr-black);
 }
 
 div.checkbox-label-row>input:checked {
@@ -61,48 +61,13 @@ div.checkbox-label-row>input:checked::before {
   bottom: 0.1em;
 }
 
-div.tooltip-row {
+div.message-row {
   display: flex;
   flex-direction: column;
-}
-
-div.label-input-row>label {
-  position: absolute;
-  top: -1.5ex;
-  left: 0.5ex;
-  background-color: var(--clr-white);
-  padding: 0 0.2em;
-  pointer-events: none;
-}
-
-div.label-input-row>input {
-  width: 100%;
-  padding: 0.5em;
 }
 
 div.button-row-single-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-button {
-  border-style: outset;
-  border-width: 5px;
-  border-color: var(--clr-accent-b);
-  padding: 0.5em 1em;
-  font-size: 1.2em;
-  background-color: var(--clr-accent-a);
-  cursor: pointer;
-}
-
-button:hover {
-  text-decoration: underline;
-  border-style: inset;
-}
-
-input {
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--clr-black);
 }
