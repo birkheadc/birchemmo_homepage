@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import IActionOutcome from 'src/app/api/actionOutcome/iActionOutcome';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -11,6 +12,8 @@ export class RegisterFormComponent implements OnInit {
 
   userService: UserService;
   userForm!: FormGroup;
+  isWorking: boolean = false;
+  outcome: IActionOutcome | null = null;
 
   constructor(userService: UserService) {
     this.userService = userService;
@@ -32,7 +35,7 @@ export class RegisterFormComponent implements OnInit {
       emailAddress: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(64)]),
       confirmPassword: new FormControl(null, [Validators.required]),
-      sendMeMail: new FormControl(false),
+      sendMeUpdates: new FormControl(false),
       agreeToTos: new FormControl(false, Validators.requiredTrue)
     });
   }
@@ -46,8 +49,12 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // Todo
-    console.log("create user...", this.userForm);
-    console.log(this.userForm.valid ? "This form is valid." : "THIS FORM IS NOT VALID!");
+    this.isWorking = true;
+    this.userService.createUser(this.userForm, this.onSubmitted);
   }
+
+  onSubmitted = (outcome: IActionOutcome) => {
+    this.isWorking = false;
+    this.outcome = outcome;
+  }  
 }

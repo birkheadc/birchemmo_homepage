@@ -12,6 +12,10 @@ input {
   height: 1em;
 }
 
+input.error {
+  border-color: var(--clr-error);
+}
+
 input:hover, input:focus {
   box-shadow: 2px 1px 2px var(--clr-black);
 }

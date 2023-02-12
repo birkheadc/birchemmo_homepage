@@ -1,0 +1,19 @@
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+div.loading-spinner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: spin 6s linear infinite;
+
+  border-style:dashed;
+  border-width: 20px;
+  border-color: var(--clr-accent-b);
+}

@@ -1,0 +1,28 @@
+div.working-overlay-form-wrapper {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+div.working-overlay-form-wrapper>div {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+}
+
+div.working-overlay {
+  width: min(10vw, 200px);
+  height: min(10vw, 200px);
+  --size: min(10vw, 200px);
+}
+
+div.working-overlay-form-wrapper>div.faded {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+div.working-overlay-form-wrapper>div.hidden {
+  opacity: 0;
+}

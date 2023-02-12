@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { UserService } from 'src/app/user/user.service';
 import { SessionService } from '../../session.service';
 
 @Component({
@@ -32,7 +31,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // Todo
-    console.log("login...");
+    this.sessionService.login(this.loginForm);
   }
 }

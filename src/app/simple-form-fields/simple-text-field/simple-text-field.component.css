@@ -19,3 +19,7 @@ input {
 input:focus, input:hover {
   box-shadow: 5px 2px 5px var(--clr-black);
 }
+
+span.error {
+  color: var(--clr-error);
+}

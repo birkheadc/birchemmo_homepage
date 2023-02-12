@@ -4,6 +4,7 @@ import { DownloadComponent } from './download/download.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './session/login/login.component';
 import { TosComponent } from './tos/tos.component';
+import { VerifyComponent } from './verify/verify.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -11,7 +12,9 @@ const routes: Routes = [
   { path: 'download', component: DownloadComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'tos', component: TosComponent }
+  { path: 'tos', component: TosComponent },
+  { path: 'verify/:code', component: VerifyComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

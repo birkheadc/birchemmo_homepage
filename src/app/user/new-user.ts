@@ -1,6 +1,8 @@
 export interface INewUser {
-  username: string,
-  password: string,
+  credentials: {
+    username: string,
+    password: string
+  }
   emailAddress: string,
-  sendMeMail: boolean
+  sendMeUpdates: boolean
 }

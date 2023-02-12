@@ -1,4 +1,4 @@
 <div class="checkbox-label-row">
-  <input [ngClass]="{ 'check-required' : control.errors }" [id]="_id" [formControl]="control" type="checkbox">
+  <input [ngClass]="{ 'error' : control.errors }" [id]="_id" [formControl]="control" type="checkbox">
   <ng-content></ng-content>
 </div>

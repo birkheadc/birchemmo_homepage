@@ -1,0 +1,13 @@
+span.outcome-display {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+span.success {
+  color: var(--clr-success);
+}
+
+span.error {
+  color: var(--clr-error);
+}

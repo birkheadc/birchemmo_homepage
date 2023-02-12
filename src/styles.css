@@ -46,14 +46,6 @@ label {
   cursor: default;
 }
 
-label.field-error, span.field-error {
-  color: red;
-}
-
-input.check-required {
-  border-color: red;
-}
-
 .standard-button {
   border-style: outset;
   border-width: 5px;
@@ -73,4 +65,8 @@ a.standard-button:hover, a.standard-button:focus, button.standard-button:hover:e
 .standard-button:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+.hidden {
+  display: none;
 }
