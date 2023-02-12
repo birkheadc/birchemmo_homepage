@@ -2,7 +2,7 @@ div {
   position: relative;
 }
 
-div.label-input-row>label {
+span {
   position: absolute;
   top: -1.5ex;
   left: 0.5ex;
@@ -11,11 +11,11 @@ div.label-input-row>label {
   pointer-events: none;
 }
 
-div.label-input-row>input {
+input {
   width: 100%;
   padding: 0.5em;
 }
 
-div.label-input-row>input:focus, div.label-input-row>input:hover {
+input:focus, input:hover {
   box-shadow: 5px 2px 5px var(--clr-black);
 }

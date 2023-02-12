@@ -7,11 +7,3 @@ h1 {
 p {
   text-align: center;
 }
-
-a {
-  color: var(--clr-accent-b);
-}
-a:hover, a:focus {
-  color: var(--clr-accent-c);
-  text-decoration: underline;
-}

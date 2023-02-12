@@ -4,8 +4,9 @@ li {
   border-radius: 5px 5px 0 0;
 }
 
-li:hover {
-  color: var(--clr-white);
+a:hover, a:focus {
+  color: var(--clr-accent-c);
+  text-decoration: underline;
 }
 
 li.active-link {

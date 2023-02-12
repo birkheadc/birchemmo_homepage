@@ -19,19 +19,8 @@ form {
   max-width: 400px;
 }
 
-div.message-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
 div.button-row-single-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-div.message-row>span::before {
-  content: '•';
-  padding: 0 0.5em;
 }

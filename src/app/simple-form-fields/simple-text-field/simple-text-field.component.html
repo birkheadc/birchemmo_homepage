@@ -1,0 +1,4 @@
+<div>
+  <span [ngClass]="{ 'field-error' : control.errors }"><label [for]="_id">{{ _id }}</label></span>
+  <input [id]="_id" [formControl]="control" [type]="type">
+</div>

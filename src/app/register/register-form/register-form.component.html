@@ -1,16 +1,16 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <app-register-form-input [control]="getFormControl('username')" _id="Username" type="text"></app-register-form-input>
-  <app-register-form-input [control]="getFormControl('emailAddress')" _id="Email Address" type="email"></app-register-form-input>
-  <app-register-form-input [control]="getFormControl('password')" _id="Password" type="password"></app-register-form-input>
-  <app-register-form-input [control]="getFormControl('confirmPassword')" _id="Confirm Password" type="password"></app-register-form-input>
+  <app-simple-text-field [control]="getFormControl('username')" _id="Username" type="text"></app-simple-text-field>
+  <app-simple-text-field [control]="getFormControl('emailAddress')" _id="Email Address" type="email"></app-simple-text-field>
+  <app-simple-text-field [control]="getFormControl('password')" _id="Password" type="password"></app-simple-text-field>
+  <app-simple-text-field [control]="getFormControl('confirmPassword')" _id="Confirm Password" type="password"></app-simple-text-field>
 
-  <app-register-form-checkbox _id="sendmemail" [control]="getFormControl('sendMeMail')">
+  <app-simple-checkbox-field _id="sendmemail" [control]="getFormControl('sendMeMail')">
     <label for="sendmemail">Send me updates and announcements about the game</label>
-  </app-register-form-checkbox>
+  </app-simple-checkbox-field>
 
-  <app-register-form-checkbox _id="agree" [control]="getFormControl('agreeToTos')">
+  <app-simple-checkbox-field _id="agree" [control]="getFormControl('agreeToTos')">
     <span><label for="agree">I have read and agree to the</label><a routerLink="/tos"> Terms of Service</a></span>
-  </app-register-form-checkbox>
+  </app-simple-checkbox-field>
   
   <div class="message-row">
     <span>We will only use your email to verify your account, or if you opt in to receive updates.</span>

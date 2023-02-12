@@ -20,8 +20,20 @@ a {
   font-family: var(--font-h);
 }
 
+a.standard-link {
+  color: var(--clr-accent-b);
+}
+a.standard-link:hover, a.standard-link:focus {
+  color: var(--clr-accent-c);
+  text-decoration: underline;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-h);
+}
+
+strong {
+  font-weight: bold;
 }
 
 input {
@@ -30,7 +42,11 @@ input {
   border-color: var(--clr-black);
 }
 
-label.field-error {
+label {
+  cursor: default;
+}
+
+label.field-error, span.field-error {
   color: red;
 }
 

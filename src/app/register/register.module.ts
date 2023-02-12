@@ -4,23 +4,21 @@ import { RegisterComponent } from './register.component';
 import { RouterModule } from '@angular/router';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserService } from '../user/user.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterFormInputComponent } from './register-form/register-form-input/register-form-input.component';
-import { RegisterFormCheckboxComponent } from './register-form/register-form-checkbox/register-form-checkbox.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SimpleFormFieldsModule } from '../simple-form-fields/simple-form-fields.module';
 
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    RegisterFormComponent,
-    RegisterFormInputComponent,
-    RegisterFormCheckboxComponent
+    RegisterFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SimpleFormFieldsModule
   ],
   providers: [
     UserService
