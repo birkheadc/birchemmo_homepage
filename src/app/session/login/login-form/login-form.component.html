@@ -1,7 +1,0 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <app-simple-text-field [control]="getFormControl('username')" _id="Username" type="text"></app-simple-text-field>
-  <app-simple-text-field [control]="getFormControl('password')" _id="Password" type="password"></app-simple-text-field>
-  <div class="button-row-single-center">
-    <button class="standard-button" [disabled]="!loginForm.valid" type="submit">Login</button>
-  </div>
-</form>

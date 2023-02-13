@@ -1,0 +1,9 @@
+<div class="working-overlay-wrapper">
+  <div [class]="isWorking ? 'faded' : ''">
+    <ng-content></ng-content>
+  </div>
+  
+  <div [class]="isWorking ? 'working-overlay' : 'hidden'">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+</div>

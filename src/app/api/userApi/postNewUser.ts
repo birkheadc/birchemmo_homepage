@@ -1,5 +1,5 @@
-import { INewUser } from "src/app/user/new-user";
-import IActionOutcome from "../actionOutcome/iActionOutcome";
+import { INewUser } from "src/app/core/types/user/new-user";
+import IActionOutcome from "../../core/types/actionOutcome/iActionOutcome";
 
 export default async function postNewUser(user: INewUser): Promise<IActionOutcome> {
   // Get these consts from somewhere...
@@ -11,17 +11,14 @@ export default async function postNewUser(user: INewUser): Promise<IActionOutcom
     const timer = setTimeout(() => {
       controller.abort();
     }, timeout);
-    const response: Response = await fetch(
-      url,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(user),
-        signal: controller.signal
-      }
-    );
+    const response: Response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user),
+      signal: controller.signal
+    });
     clearTimeout(timer);
     if (response.status === 200) {
       return {

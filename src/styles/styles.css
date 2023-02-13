@@ -1,0 +1,69 @@
+@import './reset.css';
+@import './vars.css';
+
+html {
+  color: var(--clr-black);
+  background-color: var(--clr-accent-a);
+  font-family: var(--font-p);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  font-family: var(--font-h);
+}
+
+a.standard-link {
+  color: var(--clr-accent-b);
+}
+a.standard-link:hover, a.standard-link:focus {
+  color: var(--clr-accent-c);
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-h);
+}
+
+strong {
+  font-weight: bold;
+}
+
+input {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--clr-black);
+}
+
+label {
+  cursor: default;
+}
+
+.standard-button {
+  border-style: outset;
+  border-width: 5px;
+  border-color: var(--clr-accent-b);
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  background-color: var(--clr-accent-a);
+}
+
+a.standard-button:hover, a.standard-button:focus, button.standard-button:hover:enabled, button.standard-button:focus:enabled {
+  cursor: pointer;
+  text-decoration: underline;
+  border-style: inset;
+  border-color: var(--clr-accent-c);
+}
+
+.standard-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.hidden {
+  display: none;
+}

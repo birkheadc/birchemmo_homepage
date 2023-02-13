@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DownloadComponent } from './download/download.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './session/login/login.component';
-import { TosComponent } from './tos/tos.component';
-import { VerifyComponent } from './verify/verify.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { DownloadComponent } from './features/download/download.component';
+import { RegisterComponent } from './features/registration/register.component';
+import { LoginComponent } from './features/session/login/login.component';
+import { TosComponent } from './features/tos/tos.component';
+import { VerifyComponent } from './features/verify/verify.component';
+import { WelcomeComponent } from './features/welcome/welcome.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
