@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register.component';
 import { RouterModule } from '@angular/router';
-import { RegisterFormComponent } from './register-form/register-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SimpleFormFieldsModule } from '../../shared/forms/simple-form-fields/simple-form-fields.module';
-import { WorkingOverlayFormModule } from '../../shared/working-overlay/working-overlay.module';
-import { OutcomeDisplayModule } from '../../shared/outcome-display/outcome-display.module';
-import { UserService } from '../../core/services/user/user.service';
+import { RegisterComponent } from 'src/app/features/registration/register.component';
+import { RegisterFormComponent } from 'src/app/features/registration/register-form/register-form.component';
+import { SimpleFormFieldsModule } from 'src/app/shared/forms/simple-form-fields/simple-form-fields.module';
+import { WorkingOverlayFormModule } from 'src/app/shared/working-overlay/working-overlay.module';
+import { OutcomeDisplayModule } from 'src/app/shared/outcome-display/outcome-display.module';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 
 

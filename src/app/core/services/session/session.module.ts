@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { LoginFormComponent } from './login/login-form/login-form.component';
 import { RouterModule } from '@angular/router';
-import { SimpleFormFieldsModule } from '../../shared/forms/simple-form-fields/simple-form-fields.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SessionService } from './session.service';
-import { WorkingOverlayFormModule } from 'src/app/shared/working-overlay/working-overlay.module';
+import { LoginComponent } from 'src/app/features/session/login/login.component';
+import { LogoutComponent } from 'src/app/features/session/logout/logout.component';
+import { LoginFormComponent } from 'src/app/features/session/login/login-form/login-form.component';
+import { SimpleFormFieldsModule } from 'src/app/shared/forms/simple-form-fields/simple-form-fields.module';
+import { SessionService } from 'src/app/core/services/session/session.service';
 import { OutcomeDisplayModule } from 'src/app/shared/outcome-display/outcome-display.module';
+import { WorkingOverlayFormModule } from 'src/app/shared/working-overlay/working-overlay.module';
 
 
 

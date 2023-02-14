@@ -1,5 +1,5 @@
+import IActionOutcome from "src/app/core/types/actionOutcome/iActionOutcome";
 import { INewUser } from "src/app/core/types/user/new-user";
-import IActionOutcome from "../../core/types/actionOutcome/iActionOutcome";
 
 export default async function postNewUser(user: INewUser): Promise<IActionOutcome> {
   // Get these consts from somewhere...

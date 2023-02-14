@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DownloadComponent } from './download.component';
+import { DownloadComponent } from 'src/app/features/download/download.component';
 
 
 

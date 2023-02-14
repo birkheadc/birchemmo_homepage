@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DownloadComponent } from 'src/app/features/download/download.component';
 
-import { DownloadComponent } from './download.component';
 
 describe('DownloadComponent', () => {
   let component: DownloadComponent;

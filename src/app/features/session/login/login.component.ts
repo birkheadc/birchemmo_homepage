@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { SessionService } from 'src/app/core/services/session/session.service';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
-import { SessionService } from '../session.service';
 import ITokenWrapper from '../../../core/types/tokenWrapper/tokenWrapper';
 
 @Component({
@@ -23,13 +23,9 @@ export class LoginComponent {
       username: loginForm.value.username,
       password: loginForm.value.password
     }
-    const outcome: IActionOutcome<ITokenWrapper> = await this.sessionService.login(credentials);
-    const token: ITokenWrapper | null | undefined = outcome.body;
-    if (outcome.wasSuccessful === false || outcome.body == null) {
+    const outcome: IActionOutcome = await this.sessionService.login(credentials);
+    if (outcome.wasSuccessful === false) {
       callback(outcome);
-    }
-    else {
-      console.log("Log in with token: ", outcome.body);
     }
   }
 }

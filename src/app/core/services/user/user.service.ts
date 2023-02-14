@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import IActionOutcome from '../../types/actionOutcome/iActionOutcome';
-import UserApi from '../../../api/userApi';
-import { INewUser } from '../../types/user/new-user';
+import UserApi from 'src/app/api/userApi';
+import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
+import { INewUser } from 'src/app/core/types/user/new-user';
 
 @Injectable({
   providedIn: 'root'

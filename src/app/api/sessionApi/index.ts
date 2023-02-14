@@ -1,4 +1,4 @@
-import getSessionToken from "./getSessionToken";
+import getSessionToken from "src/app/api/sessionApi/getSessionToken";
 
 const SessionApi = {
   getSessionToken

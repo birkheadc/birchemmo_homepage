@@ -1,7 +1,7 @@
 import ICredentials from "src/app/core/types/credentials/iCredentials";
 import ITokenWrapper from "src/app/core/types/tokenWrapper/tokenWrapper";
-import IActionOutcome from "../../core/types/actionOutcome/iActionOutcome";
 import { Buffer } from 'buffer';
+import IActionOutcome from "src/app/core/types/actionOutcome/iActionOutcome";
 
 export default async function getSessionToken(credentials: ICredentials): Promise<IActionOutcome<ITokenWrapper>> {
   // Get these consts from somewhere...

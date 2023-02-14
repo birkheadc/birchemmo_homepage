@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavComponent } from './nav.component';
 import { RouterModule } from '@angular/router';
-import { NavLinkComponent } from './nav-link/nav-link.component';
+import { NavComponent } from 'src/app/features/nav/nav.component';
+import { NavLinkComponent } from 'src/app/features/nav/nav-link/nav-link.component';
 
 
 
