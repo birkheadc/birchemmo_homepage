@@ -19,4 +19,6 @@ import { NavLinkComponent } from 'src/app/features/nav/nav-link/nav-link.compone
     NavComponent
   ]
 })
-export class NavModule { }
+export class NavModule {
+
+}

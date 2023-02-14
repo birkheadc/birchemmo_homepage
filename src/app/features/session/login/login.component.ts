@@ -27,5 +27,8 @@ export class LoginComponent {
     if (outcome.wasSuccessful === false) {
       callback(outcome);
     }
+    else {
+      console.log("change page");
+    }
   }
 }

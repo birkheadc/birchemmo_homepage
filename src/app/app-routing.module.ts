@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LogoutComponent } from 'src/app/features/session/logout/logout.component';
 import { DownloadComponent } from './features/download/download.component';
 import { RegisterComponent } from './features/registration/register.component';
 import { LoginComponent } from './features/session/login/login.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'download', component: DownloadComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent},
   { path: 'tos', component: TosComponent },
   { path: 'verify/:code', component: VerifyComponent },
   { path: '**', redirectTo: '', pathMatch: 'full'}

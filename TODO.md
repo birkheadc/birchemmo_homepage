@@ -7,3 +7,5 @@
   - If login token has an expiration date, automatically log out the user if it has passed
     - Eventually, figure out how to set up automatic extensions for tokens. Back-end is not capable of this yet anyway.
   - Change all import statements to be non-relative (i.e. 'src/.../file' rather than '../../.../file')
+  - Stop form input width changing when a large outcome-display causes the form to stretch.
+  - Navigate user to a different page (probably home page) when they login / -out.

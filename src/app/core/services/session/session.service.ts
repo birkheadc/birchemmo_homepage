@@ -28,6 +28,7 @@ export class SessionService {
     }
     const outcome: IActionOutcome<ITokenWrapper> = await SessionApi.getSessionToken(credentials);
     if (outcome.wasSuccessful === true && outcome.body != null) {
+      console.log("TOKEN: ", outcome.body);
       this.setLoggedIn(outcome.body);
     }
     return {
@@ -63,7 +64,7 @@ export class SessionService {
   private setLoggedIn(token: ITokenWrapper): void {
     this.token = token;
     window.localStorage.setItem(this.TOKEN_KEY, token.token);
-    window.localStorage.setItem(this.TOKEN_EXPIRATION_DATE_KEY, token.expires.getTime().toString());
+    window.localStorage.setItem(this.TOKEN_EXPIRATION_DATE_KEY, token.expires.toString());
   }
 
   private setLoggedOut(): void {
