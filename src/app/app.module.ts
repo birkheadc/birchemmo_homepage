@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DownloadModule } from './features/download/download.module';
@@ -22,7 +24,8 @@ import { WelcomeModule } from './features/welcome/welcome.module';
     RegisterModule,
     DownloadModule,
     WelcomeModule,
-    TosModule
+    TosModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
