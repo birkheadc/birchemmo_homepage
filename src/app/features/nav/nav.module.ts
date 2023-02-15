@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavComponent } from 'src/app/features/nav/nav.component';
 import { NavLinkComponent } from 'src/app/features/nav/nav-link/nav-link.component';
+import { SessionModule } from 'src/app/features/session/session.module';
 
 
 
@@ -13,7 +14,8 @@ import { NavLinkComponent } from 'src/app/features/nav/nav-link/nav-link.compone
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SessionModule
   ],
   exports: [
     NavComponent

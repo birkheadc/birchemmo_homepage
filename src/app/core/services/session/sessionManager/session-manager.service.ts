@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import SessionApi from 'src/app/api/sessionApi';
+import { Injectable, OnDestroy } from '@angular/core';
+import { catchError, Subscription } from 'rxjs';
+import { SessionTokenService } from 'src/app/core/services/session/sessionTokenService/session-token.service';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
 import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
@@ -7,37 +8,45 @@ import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
 @Injectable({
   providedIn: 'root'
 })
-export class SessionService {
+export class SessionManagerService implements OnDestroy {
 
+  sessionTokenService: SessionTokenService;
   token: ITokenWrapper | null = null;
+  tokenSubscription: Subscription | null = null;
   TOKEN_KEY: string = "session_token";
   TOKEN_EXPIRATION_DATE_KEY: string = "session_token_expiration_date";
+
+  constructor(sessionTokenService: SessionTokenService) {
+    this.sessionTokenService = sessionTokenService;
+  }
 
   isLoggedIn(): boolean {
     this.getTokenFromLocalStorage();
     this.logoutIfExpired();
     return this.token != null;
   }
-
-  async login(credentials: ICredentials): Promise<IActionOutcome> {
+  
+  login(credentials: ICredentials, callback: (outcome: IActionOutcome) => void) {
     if (this.isLoggedIn() === true) {
-      return {
+      callback({
         wasSuccessful: false,
         message: "Could not login, already logged in. Please logout first."
+      });
+      return;
+    }
+    const tokenSubscription = this.sessionTokenService.getSessionToken(credentials)
+      .subscribe(
+      (token: ITokenWrapper) => {
+        this.setLoggedIn(token)
+        callback({
+          wasSuccessful: true,
+          message: "Logging in..."
+        })
       }
-    }
-    const outcome: IActionOutcome<ITokenWrapper> = await SessionApi.getSessionToken(credentials);
-    if (outcome.wasSuccessful === true && outcome.body != null) {
-      console.log("TOKEN: ", outcome.body);
-      this.setLoggedIn(outcome.body);
-    }
-    return {
-      wasSuccessful: outcome.wasSuccessful,
-      message: outcome.message
-    };
+    );
   }
 
-  logout(): void {
+  logout() {
     this.setLoggedOut();
   }
 
@@ -71,5 +80,9 @@ export class SessionService {
     this.token = null;
     window.localStorage.removeItem(this.TOKEN_KEY);
     window.localStorage.removeItem(this.TOKEN_EXPIRATION_DATE_KEY);
+  }
+
+  ngOnDestroy(): void {
+    this.tokenSubscription?.unsubscribe();
   }
 }

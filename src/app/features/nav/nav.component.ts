@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SessionService } from 'src/app/core/services/session/session.service';
+import { SessionManagerService } from 'src/app/core/services/session/sessionManager/session-manager.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,13 +7,13 @@ import { SessionService } from 'src/app/core/services/session/session.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  sessionService: SessionService
+  sessionManager: SessionManagerService
 
-  constructor(sessionService: SessionService) {
-    this.sessionService = sessionService;
+  constructor(sessionManager: SessionManagerService) {
+    this.sessionManager = sessionManager;
   }
 
   logout = (): void => {
-    this.sessionService.logout();
+    this.sessionManager.logout();
   }
 }

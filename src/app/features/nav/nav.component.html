@@ -4,8 +4,8 @@
     <app-nav-link path="/download" text="Download"></app-nav-link>
   </ul>
   <ul>
-    <app-nav-link *ngIf="!sessionService.isLoggedIn()" path="/login" text="Login"></app-nav-link>
-    <button *ngIf="sessionService.isLoggedIn()" (click)="logout()">Logout</button>    
+    <app-nav-link *ngIf="!sessionManager.isLoggedIn()" path="/login" text="Login"></app-nav-link>
+    <button *ngIf="sessionManager.isLoggedIn()" (click)="logout()">Logout</button>    
     <app-nav-link path="/register" text="Sign Up"></app-nav-link>
   </ul>
 </nav>
