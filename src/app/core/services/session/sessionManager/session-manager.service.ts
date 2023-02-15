@@ -1,5 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { catchError, Subscription } from 'rxjs';
+import { catchError, map, Observable, of, Subscription } from 'rxjs';
 import { SessionTokenService } from 'src/app/core/services/session/sessionTokenService/session-token.service';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
@@ -34,9 +35,25 @@ export class SessionManagerService implements OnDestroy {
       });
       return;
     }
-    const tokenSubscription = this.sessionTokenService.getSessionToken(credentials)
+    this.tokenSubscription = this.sessionTokenService.getSessionToken(credentials)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          callback({
+            wasSuccessful: false,
+            message: error.statusText
+          })
+          return new Observable<ITokenWrapper>
+        })
+      )
       .subscribe(
       (token: ITokenWrapper) => {
+        if (token == null) {
+          callback({
+            wasSuccessful: false,
+            message: "Failed to login"
+          })
+          return;
+        }
         this.setLoggedIn(token)
         callback({
           wasSuccessful: true,
