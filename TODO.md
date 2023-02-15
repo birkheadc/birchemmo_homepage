@@ -9,3 +9,4 @@
   - Change all import statements to be non-relative (i.e. 'src/.../file' rather than '../../.../file')
   - Stop form input width changing when a large outcome-display causes the form to stretch.
   - Navigate user to a different page (probably home page) when they login / -out.
+  - Split UserService up in the same way SessionService was -- a manager class to hold the current logged in user, and a service to fetch user(s)
