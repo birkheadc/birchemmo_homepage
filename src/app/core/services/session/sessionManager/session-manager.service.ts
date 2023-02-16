@@ -19,11 +19,11 @@ export class SessionManagerService implements OnDestroy {
 
   constructor(sessionTokenService: SessionTokenService) {
     this.sessionTokenService = sessionTokenService;
+    this.checkSessionToken();
   }
 
   isLoggedIn(): boolean {
-    this.getTokenFromLocalStorage();
-    this.logoutIfExpired();
+    this.checkSessionToken();
     return this.token != null;
   }
   
@@ -80,6 +80,11 @@ export class SessionManagerService implements OnDestroy {
       token: token,
       expires: date
     });
+  }
+
+  private checkSessionToken(): void {
+    this.getTokenFromLocalStorage();
+    this.logoutIfExpired();
   }
 
   private logoutIfExpired(): void {

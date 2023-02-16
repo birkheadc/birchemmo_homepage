@@ -9,13 +9,16 @@ import { OutcomeDisplayModule } from 'src/app/shared/outcome-display/outcome-dis
 import { WorkingOverlayFormModule } from 'src/app/shared/working-overlay/working-overlay.module';
 import { SessionTokenService } from 'src/app/core/services/session/sessionTokenService/session-token.service';
 import { SessionManagerService } from 'src/app/core/services/session/sessionManager/session-manager.service';
+import { LogoutComponent } from './logout/logout.component';
+import { LoadingSpinnerModule } from 'src/app/shared/loading-spinner/loading-spinner.module';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,

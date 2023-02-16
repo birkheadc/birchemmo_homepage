@@ -8,13 +8,15 @@ import { SimpleFormFieldsModule } from 'src/app/shared/forms/simple-form-fields/
 import { WorkingOverlayFormModule } from 'src/app/shared/working-overlay/working-overlay.module';
 import { OutcomeDisplayModule } from 'src/app/shared/outcome-display/outcome-display.module';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { SendVerificationComponent } from './send-verification/send-verification.component';
 
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    SendVerificationComponent
   ],
   imports: [
     CommonModule,
