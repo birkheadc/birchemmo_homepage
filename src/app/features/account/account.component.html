@@ -1,0 +1,8 @@
+<div *ngIf="userManager.user == null">
+  <h2>Hey you aren't logged in!</h2>
+</div>
+<div *ngIf="userManager.user != null">
+  <h2>Account</h2>
+
+  <p>Your username is: {{userManager.user.userDetails.username}}</p>
+</div>

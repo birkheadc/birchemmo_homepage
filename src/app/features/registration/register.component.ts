@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/core/services/user/user.service';
+import { UserService } from 'src/app/core/services/user/user/user.service';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import { INewUser } from 'src/app/core/types/user/new-user';
 
@@ -38,6 +38,7 @@ export class RegisterComponent {
   }
 
   onCreatedSuccessfully(emailAddress: string): void {
-    this.router.navigate(["/send-verification", emailAddress]);
+
+    this.router.navigate(["/send-verification", emailAddress], { skipLocationChange: true });
   }
 }

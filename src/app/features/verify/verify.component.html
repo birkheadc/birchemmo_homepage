@@ -1,1 +1,12 @@
-<p>{{verificationCode}}</p>
+<app-working-overlay [isWorking]="isWorking">
+  <div *ngIf="!isWorking && outcome != null && outcome.wasSuccessful">
+    <h2>Congratulations!</h2>
+    <p>Your email address has been validated and your account registration is complete.</p>
+    <p>You may now login and use your account.</p>
+  </div>
+  <div *ngIf="!isWorking && outcome != null && !outcome.wasSuccessful">
+    <h2>Oh no</h2>
+    <p>Sorry, something went wrong :(</p>
+  </div>
+  
+</app-working-overlay>

@@ -11,6 +11,8 @@ import { RegisterModule } from './features/registration/register.module';
 import { SessionModule } from './features/session/session.module';
 import { TosModule } from './features/tos/tos.module';
 import { WelcomeModule } from './features/welcome/welcome.module';
+import { AccountModule } from 'src/app/features/account/account.module';
+import { VerifyModule } from 'src/app/features/verify/verify.module';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,15 @@ import { WelcomeModule } from './features/welcome/welcome.module';
     BrowserModule,
     AppRoutingModule,
     NavModule,
+    AccountModule,
     SessionModule,
     RegisterModule,
     DownloadModule,
     WelcomeModule,
     TosModule,
-    HttpClientModule
+    HttpClientModule,
+    VerifyModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

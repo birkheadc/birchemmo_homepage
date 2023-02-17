@@ -1,0 +1,10 @@
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--clr-accent-b);
+}
+
+p {
+  font-size: 1.3rem;
+  text-align: center;
+}

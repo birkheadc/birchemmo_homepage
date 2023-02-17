@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VerifyComponent } from './verify.component';
+import { WorkingOverlayModule } from 'src/app/shared/working-overlay/working-overlay.module';
 
 
 
@@ -9,7 +10,8 @@ import { VerifyComponent } from './verify.component';
     VerifyComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    WorkingOverlayModule
   ],
   exports: [
     VerifyComponent

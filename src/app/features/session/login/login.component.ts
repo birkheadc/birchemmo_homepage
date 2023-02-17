@@ -9,7 +9,6 @@ import ICredentials from 'src/app/core/types/credentials/iCredentials';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [SessionManagerService]
 })
 export class LoginComponent {
   sessionManager: SessionManagerService;

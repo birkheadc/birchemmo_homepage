@@ -17,4 +17,4 @@ import { LoadingSpinnerModule } from '../loading-spinner/loading-spinner.module'
     WorkingOverlayComponent
   ]
 })
-export class WorkingOverlayFormModule { }
+export class WorkingOverlayModule { }

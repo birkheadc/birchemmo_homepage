@@ -9,8 +9,12 @@ export class EmailVerificationService {
 
   constructor(private http: HttpClient) { }
 
-  sendVerificationEmail(callback: (outcome: IActionOutcome) => void): void {
-    // Todo: get the url from somewhere else
-    const url: string = "http://localhost:5048/api/email-verification/send";
+  postVerificationCode(code: string, callback: (outcome: IActionOutcome) => void): void {
+    setTimeout(() => {
+      callback({
+        wasSuccessful: false,
+        message: "Not yet implemented"
+      })
+    }, 1000)
   }
 }

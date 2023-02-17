@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { catchError, map, Observable, of, Subscription } from 'rxjs';
+import { catchError, map, Observable, of, Subscription, timeout, TimeoutError } from 'rxjs';
 import { SessionTokenService } from 'src/app/core/services/session/sessionTokenService/session-token.service';
+import { UserManagerService } from 'src/app/core/services/user/userManager/user-manager.service';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
 import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
@@ -11,23 +12,26 @@ import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
 })
 export class SessionManagerService implements OnDestroy {
 
-  sessionTokenService: SessionTokenService;
   token: ITokenWrapper | null = null;
   tokenSubscription: Subscription | null = null;
   TOKEN_KEY: string = "session_token";
   TOKEN_EXPIRATION_DATE_KEY: string = "session_token_expiration_date";
 
-  constructor(sessionTokenService: SessionTokenService) {
-    this.sessionTokenService = sessionTokenService;
+  constructor(
+    private sessionTokenService: SessionTokenService,
+    private userManager: UserManagerService,
+  ) {
     this.checkSessionToken();
   }
 
   isLoggedIn(): boolean {
-    this.checkSessionToken();
     return this.token != null;
   }
   
   login(credentials: ICredentials, callback: (outcome: IActionOutcome) => void) {
+
+    // Todo: This whole thing is awful please fix it
+
     if (this.isLoggedIn() === true) {
       callback({
         wasSuccessful: false,
@@ -35,29 +39,35 @@ export class SessionManagerService implements OnDestroy {
       });
       return;
     }
+    
+    // Todo: For some reason my http client never connects anymore suddenly...
+
     this.tokenSubscription = this.sessionTokenService.getSessionToken(credentials)
       .pipe(
-        catchError((error: HttpErrorResponse) => {
+        timeout(3000),
+        catchError((error: TimeoutError | HttpErrorResponse) => {
+          let message = "Unknown error"
+          if (error instanceof HttpErrorResponse) message = error.statusText;
+          if (error instanceof TimeoutError) message = "Timed out connecting to server";
           callback({
             wasSuccessful: false,
-            message: error.statusText
+            message: message
           })
           return new Observable<ITokenWrapper>
         })
       )
       .subscribe(
       (token: ITokenWrapper) => {
-        if (token == null) {
-          callback({
-            wasSuccessful: false,
-            message: "Failed to login"
-          })
-          return;
-        }
-        this.setLoggedIn(token)
-        callback({
-          wasSuccessful: true,
-          message: "Logging in..."
+        this.userManager.setUser(token.token, (outcome: IActionOutcome) => {
+          if (outcome.wasSuccessful === false) {
+            callback(outcome);
+          } else {
+            this.setLoggedIn(token);
+            callback({
+              wasSuccessful: true,
+              message: "Logging in..."
+            })
+          }
         })
       }
     );
@@ -65,6 +75,7 @@ export class SessionManagerService implements OnDestroy {
 
   logout() {
     this.setLoggedOut();
+    this.userManager.removeUser();
   }
 
   private getTokenFromLocalStorage(): void {
@@ -76,9 +87,15 @@ export class SessionManagerService implements OnDestroy {
       this.setLoggedOut();
       return;
     }
-    this.setLoggedIn({
-      token: token,
-      expires: date
+    this.userManager.setUser(token, (outcome) => {
+      if (outcome.wasSuccessful) {
+        this.setLoggedIn({
+          token: token,
+          expires: date
+        });
+      } else {
+        this.setLoggedOut();
+      }
     });
   }
 
