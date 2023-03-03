@@ -5,6 +5,6 @@
   <p>Your characters continue to live and work even while you're offline. Give them tasks, assign them resources they can use automatically when they need them; then sit back and watch them work. Or move on to your other characters!</p>
 </div>
 <div class="call-to-action">
-  <a class="standard-button" routerLink="/register">Create Free Account</a>
+  <a *ngIf="userManager.user == null" class="standard-button" routerLink="/register">Create Free Account</a>
   <a class="standard-button" routerLink="/download">Download Client</a>
 </div>

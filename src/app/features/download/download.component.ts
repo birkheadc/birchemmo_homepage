@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserManagerService } from 'src/app/core/services/user/userManager/user-manager.service';
 
 @Component({
   selector: 'app-download',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class DownloadComponent {
 
+  userManager: UserManagerService;
+
+  constructor(userManager: UserManagerService) {
+    this.userManager = userManager;
+  }
 }
