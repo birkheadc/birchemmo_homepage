@@ -1,7 +1,7 @@
-import getSessionToken from "src/app/api/sessionApi/getSessionToken";
+// import getSessionToken from "src/app/api/sessionApi/getSessionToken";
 
-const SessionApi = {
-  getSessionToken
-}
+// const SessionApi = {
+//   getSessionToken
+// }
 
-export default SessionApi;
+// export default SessionApi;

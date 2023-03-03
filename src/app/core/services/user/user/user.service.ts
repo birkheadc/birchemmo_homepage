@@ -14,8 +14,9 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   async createUser(user: INewUser): Promise<IActionOutcome> {
-    const outcome: IActionOutcome = await UserApi.postNewUser(user);
-    return outcome;
+    // Todo: Re-write this with HttpClient
+    // const outcome: IActionOutcome = await UserApi.postNewUser(user);
+    // return outcome;
   }
 
   getUser(token: string): Observable<IUser> {
