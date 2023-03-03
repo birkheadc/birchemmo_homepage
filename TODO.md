@@ -1,12 +1,11 @@
 # Todo
   - Figure out where and how to declare environment variables (backend url, how long to timeout fetch requests, etc.)
-  - Reroute user upon:
-    - Successfully creating new user
-    - Logging in
   - If login token has an expiration date, automatically log out the user if it has passed
     - Eventually, figure out how to set up automatic extensions for tokens. Back-end is not capable of this yet anyway.
   - Change all import statements to be non-relative (i.e. 'src/.../file' rather than '../../.../file')
   - Stop form input width changing when a large outcome-display causes the form to stretch.
   - Split UserService up in the same way SessionService was -- a manager class to hold the current logged in user, and a service to fetch user(s)
   - Check for session token when first opening app, log user in if the token is present and valid
-  - Style logout button
+  - Remove dependencies on everything in api folder and then remove it
+  - Test email verification service
+  - Match userDetails.role enum to actual values rather than just the number (i.e., 0 should be visitor, 3 should be admin etc.)

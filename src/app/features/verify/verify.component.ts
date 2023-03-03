@@ -16,7 +16,7 @@ export class VerifyComponent {
   constructor(private route: ActivatedRoute, private emailVerificationService: EmailVerificationService) {}
 
   ngOnInit(): void {
-    this.verificationCode = this.route.snapshot.paramMap.get('verificationCode');
+    this.verificationCode = this.route.snapshot.paramMap.get('code');
     this.submitCode();
   }
 

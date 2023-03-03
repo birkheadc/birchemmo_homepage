@@ -16,11 +16,19 @@ export class SendVerificationComponent implements OnInit {
   // reroute to home if the current user is already validated (why are you even on this page?)
   // add the email address to the page otherwise
 
+  emailVerificationService: EmailVerificationService;
+
   emailAddress: string | null= null;
-  constructor(private route: ActivatedRoute) {
-    
+  constructor(private route: ActivatedRoute, emailVerificationService: EmailVerificationService) {
+    this.emailVerificationService = emailVerificationService;
   }
+
   ngOnInit(): void {
     this.emailAddress = this.route.snapshot.paramMap.get('emailAddress');
+  }
+
+  resend():void {
+    if (this.emailAddress == null) return;
+    this.emailVerificationService.requestVerificationEmail(this.emailAddress);
   }
 }
