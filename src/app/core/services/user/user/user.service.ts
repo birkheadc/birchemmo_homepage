@@ -4,6 +4,7 @@ import { catchError, Observable, timeout, TimeoutError } from 'rxjs';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import { INewUser } from 'src/app/core/types/user/new-user';
 import IUser from 'src/app/core/types/user/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,10 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   createUser(user: INewUser, callback: (outcome: IActionOutcome) => void): void {
-    // Todo: Get this string from somewhere else
-    const url: string = "http://localhost:5048/api/user/new";
+    const url: string = environment.userApiUrl + "/user/new";
     this.http.post(url, user)
       .pipe(
-        timeout(8000),
+        timeout(environment.userApiTimeout),
         catchError((error: HttpErrorResponse | TimeoutError) => {
           let message = "Unknown error";
           if (error instanceof HttpErrorResponse) message = error.statusText;
@@ -40,8 +40,7 @@ export class UserService {
   }
 
   getUser(token: string): Observable<IUser> {
-    // Todo: Get this string from somewhere else
-    const url: string = "http://localhost:5048/api/user";
+    const url: string = environment.userApiUrl + "/user";
     const headers: HttpHeaders = new HttpHeaders({
       "Authorization": "Bearer " + token
     })

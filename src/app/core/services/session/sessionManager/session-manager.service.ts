@@ -6,6 +6,7 @@ import { UserManagerService } from 'src/app/core/services/user/userManager/user-
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
 import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,7 @@ export class SessionManagerService implements OnDestroy {
 
     this.tokenSubscription = this.sessionTokenService.getSessionToken(credentials)
       .pipe(
-        timeout(8000),
+        timeout(environment.userApiTimeout),
         catchError((error: TimeoutError | HttpErrorResponse) => {
           let message = "Unknown error"
           if (error instanceof HttpErrorResponse) message = error.statusText;

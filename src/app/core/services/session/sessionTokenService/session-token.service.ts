@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
 import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
 import { Buffer } from 'buffer';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,7 @@ export class SessionTokenService {
   }
 
   getSessionToken(credentials: ICredentials): Observable<ITokenWrapper> {
-    // Todo: Get this string from somewhere else
-    const url: string = "http://localhost:5048/api/session";
+    const url: string = environment.userApiUrl + "/session";
     const headers: HttpHeaders = new HttpHeaders({
       "Authorization": this.credentialsToBasicAuth(credentials)
     });

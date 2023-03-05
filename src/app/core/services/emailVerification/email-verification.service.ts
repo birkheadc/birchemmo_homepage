@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, of, Subscription, take, timeout, TimeoutError } from 'rxjs';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ITokenWrapper from 'src/app/core/types/tokenWrapper/tokenWrapper';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,11 @@ export class EmailVerificationService {
   constructor(private http: HttpClient) { }
 
   requestVerificationEmail(emailAddress: string, callback: (outcome: IActionOutcome) => void): void {
-    // Todo: Get this string from somewhere else
-    const url: string = "http://localhost:5048/api/email-verification/send/" + emailAddress;
+    const url: string = environment.userApiUrl + "/email-verification/send/" + emailAddress;
     this.http.post(url, {})
       .pipe(
         take(1),
-        timeout(8000),
+        timeout(environment.userApiTimeout),
         catchError((error: HttpErrorResponse) => {
           console.log(error);
           callback({
@@ -36,8 +36,7 @@ export class EmailVerificationService {
   }
 
   postVerificationCode(code: string, callback: (outcome: IActionOutcome) => void): void {
-    // Todo: Get this string from somewhere else
-    const url: string = "http://localhost:5048/api/email-verification/verify";
+    const url: string = environment.userApiUrl + "/email-verification/verify";
     const body = {
       token: code,
       expires: null
@@ -45,7 +44,7 @@ export class EmailVerificationService {
     this.http.post(url, body)
       .pipe(
         take(1),
-        timeout(8000),
+        timeout(environment.userApiTimeout),
         catchError((error: TimeoutError | HttpErrorResponse) => {
           let message = "Unknown error"
           if (error instanceof HttpErrorResponse) message = error.statusText;

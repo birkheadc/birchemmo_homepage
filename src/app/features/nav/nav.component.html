@@ -1,7 +1,8 @@
 <nav>
   <ul>
     <app-nav-link path="/" text="Home"></app-nav-link>
-    <app-nav-link path="/download" text="Play Now"></app-nav-link>
+    <app-nav-link path="/download" text="Download"></app-nav-link>
+    <app-nav-link path="play" text="Play Now"></app-nav-link>
   </ul>
   <ul *ngIf="!sessionManager.isLoggedIn()">
     <app-nav-link path="/login" text="Login"></app-nav-link>
