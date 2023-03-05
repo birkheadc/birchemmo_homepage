@@ -6,6 +6,5 @@
   - Change all import statements to be non-relative (i.e. 'src/.../file' rather than '../../.../file')
     - work in progress, moving forward vscode should do this automatically
   - Stop form input width changing when a large outcome-display causes the form to stretch.
-  - Remove dependencies on everything in api folder and then remove it
   - Match userDetails.role enum to actual values rather than just the number (i.e., 0 should be visitor, 3 should be admin etc.)
   - Try to remember why exactly I use `take(1)` in some rxjs pipes, I know I had a reason but I don't even remember what this line is doing now. I sort of understand what this should be doing in theory but am failing to understand why I felt it necessary or what problem I was having that this solved
