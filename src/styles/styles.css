@@ -67,3 +67,11 @@ a.standard-button:hover, a.standard-button:focus, button.standard-button:hover:e
 .hidden {
   display: none;
 }
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}

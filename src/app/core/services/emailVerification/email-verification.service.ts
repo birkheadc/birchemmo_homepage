@@ -11,20 +11,28 @@ export class EmailVerificationService {
 
   constructor(private http: HttpClient) { }
 
-  requestVerificationEmail(emailAddress: string): void {
+  requestVerificationEmail(emailAddress: string, callback: (outcome: IActionOutcome) => void): void {
+    // Todo: Get this string from somewhere else
     const url: string = "http://localhost:5048/api/email-verification/send/" + emailAddress;
     this.http.post(url, {})
       .pipe(
         take(1),
-        timeout(3000),
+        timeout(8000),
         catchError((error: HttpErrorResponse) => {
           console.log(error);
+          callback({
+            wasSuccessful: false,
+            message: 'Sorry, failed to send email.'
+          });
           return new Observable();
         })
       )
-      .subscribe(
-        () => console.log("success")
-      );
+      .subscribe(() => {
+        callback({
+          wasSuccessful: true,
+          message: 'Email has been sent.'
+        });
+      });
   }
 
   postVerificationCode(code: string, callback: (outcome: IActionOutcome) => void): void {
@@ -37,7 +45,7 @@ export class EmailVerificationService {
     this.http.post(url, body)
       .pipe(
         take(1),
-        timeout(3000),
+        timeout(8000),
         catchError((error: TimeoutError | HttpErrorResponse) => {
           let message = "Unknown error"
           if (error instanceof HttpErrorResponse) message = error.statusText;

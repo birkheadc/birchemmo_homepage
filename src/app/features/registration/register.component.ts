@@ -30,11 +30,12 @@ export class RegisterComponent {
       sendMeUpdates: userForm.value.sendMeUpdates
     };
 
-    const outcome: IActionOutcome = await this.userService.createUser(user);
-    callback(outcome);
-    if (outcome.wasSuccessful === true) {
-      this.onCreatedSuccessfully(userForm.value.emailAddress);
-    }
+    this.userService.createUser(user, (outcome: IActionOutcome): void => {
+      callback(outcome)
+      if (outcome.wasSuccessful === true) {
+        this.onCreatedSuccessfully(userForm.value.emailAddress);
+      }
+    });
   }
 
   onCreatedSuccessfully(emailAddress: string): void {

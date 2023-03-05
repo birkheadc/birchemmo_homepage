@@ -44,7 +44,7 @@ export class SessionManagerService implements OnDestroy {
 
     this.tokenSubscription = this.sessionTokenService.getSessionToken(credentials)
       .pipe(
-        timeout(3000),
+        timeout(8000),
         catchError((error: TimeoutError | HttpErrorResponse) => {
           let message = "Unknown error"
           if (error instanceof HttpErrorResponse) message = error.statusText;

@@ -12,6 +12,9 @@ import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 })
 export class SendVerificationComponent implements OnInit {
 
+  isWorking: boolean = false;
+  outcome: IActionOutcome | null = null;
+
   // This component needs to get the current user so it can:
   // reroute to home if the current user is already validated (why are you even on this page?)
   // add the email address to the page otherwise
@@ -29,6 +32,10 @@ export class SendVerificationComponent implements OnInit {
 
   resend():void {
     if (this.emailAddress == null) return;
-    this.emailVerificationService.requestVerificationEmail(this.emailAddress);
+    this.isWorking = true;
+    this.emailVerificationService.requestVerificationEmail(this.emailAddress, (outcome: IActionOutcome) => {
+      this.outcome = outcome;
+      this.isWorking = false
+    });
   }
 }
