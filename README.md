@@ -9,4 +9,3 @@ Most of my experience in front-end web-development is with React. This is my fir
 ## Asynchronous Code
 
 Normally when writing asnychronous code, I would make extensive use of `async` and `await` keywords and write everything with that in mind. However, with this project I have begun experimenting with rxjs Observables and a callback-based approach. I am not sure if I am making more work for myself this way or not, but it is what I've decided to go with for now.
-
