@@ -1,0 +1,13 @@
+<nav>
+  <div class="nav-bar">
+    <button class="nav-clickbox" (click)="toggleMainNavPanel()">Nav</button>
+    <span class="heading-font">BircheOnline</span>
+    <button class="nav-session-clickbox" (click)="toggleSessionPanel()">{{isLoggedIn ? username : 'Login'}}</button>
+  </div>
+  <div [class]="'nav-main-panel nav-clickbox ' + (isNavPanelOpen ? 'nav-main-panel-open' : 'nav-main-panel-closed')">
+    <button class="nav-clickbox">x</button>
+  </div>
+  <div [class]="'nav-session-panel nav-session-clickbox ' + (isSessionPanelOpen ? 'nav-session-panel-open' : 'nav-session-panel-closed')">
+    session panel
+  </div>
+</nav>

@@ -11,7 +11,6 @@ export class WelcomeComponent {
   userManager: UserManagerService;
 
   constructor(userManager: UserManagerService) {
-    console.log("1");
     this.userManager = userManager;
   }
 }

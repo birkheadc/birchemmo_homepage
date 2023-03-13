@@ -19,7 +19,7 @@ div.links {
   display: flex;
   flex-direction: row;
   gap: 2em;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 

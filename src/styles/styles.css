@@ -25,7 +25,7 @@ a.standard-link:hover, a.standard-link:focus {
   text-decoration: underline;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .heading-font {
   font-family: var(--font-h);
 }
 

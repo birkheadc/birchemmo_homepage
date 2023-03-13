@@ -12,5 +12,5 @@ export class SimpleTextFieldComponent {
   @Input()
   type!: string;
   @Input()
-  control!: FormControl
+  control!: FormControl;
 }

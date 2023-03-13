@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 
@@ -7,7 +7,7 @@ import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterFormComponent implements OnInit, AfterViewInit {
 
   userForm!: FormGroup;
   isWorking: boolean = false;
@@ -24,6 +24,11 @@ export class RegisterFormComponent implements OnInit {
         this.userForm.get('confirmPassword') as FormControl
       )
     ]);
+  }
+
+  ngAfterViewInit() {
+    const usernameInput: HTMLElement | null = document.querySelector('#Username');
+    usernameInput?.focus();
   }
 
   generateUserForm(): FormGroup {

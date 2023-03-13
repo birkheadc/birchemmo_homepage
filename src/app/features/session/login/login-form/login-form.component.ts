@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import IActionOutcome from 'src/app/core/types/actionOutcome/iActionOutcome';
 import ICredentials from 'src/app/core/types/credentials/iCredentials';
@@ -19,6 +19,11 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.generateLoginForm();
+  }
+  
+  ngAfterViewInit() {
+    const usernameInput: HTMLElement | null = document.querySelector('#Username');
+    usernameInput?.focus();
   }
 
   generateLoginForm(): FormGroup {

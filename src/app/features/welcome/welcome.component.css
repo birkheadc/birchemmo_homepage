@@ -9,14 +9,22 @@ div.rows {
   flex-direction: column;
   gap: 1em;
   text-align: center;
-  max-width: 50%;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 div.call-to-action {
   display: flex;
   flex-direction: row;
-  max-width: 50%;
+  max-width: 600px;
   margin: 3em auto;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2em;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  div.call-to-action {
+    gap: 0.5em;
+  }
 }
